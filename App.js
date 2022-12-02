@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import CreateAccount from "./screens/CreateAccount";
 import DefaultScreen from "./screens/DefaultScreen";
+import Signup from "./screens/Signup";
 import VerificationScreen from "./screens/VerificationScreen";
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ export default function App() {
           <Stack.Screen name="Default" component={DefaultScreen} />
           <Stack.Screen name="Createaccount" component={CreateAccount} />
           <Stack.Screen name="Verification" component={VerificationScreen} />
+          <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>
         <StatusBar style="auto" />
       </View>
