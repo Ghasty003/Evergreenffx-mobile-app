@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-function DefaultScreen() {
+function DefaultScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Smart Trading Technology</Text>
@@ -18,6 +18,7 @@ function DefaultScreen() {
 
       <View style={styles.loginParent}>
         <TouchableOpacity
+          onPress={() => navigation.navigate("Createaccount")}
           style={[styles.login, { backgroundColor: "#00C805" }]}
         >
           <Text style={styles.loginText}>Signup</Text>
