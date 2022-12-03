@@ -11,7 +11,10 @@ function DefaultScreen({ navigation }) {
       </Text>
       <Image style={styles.img} source={require("../assets/circle.png")} />
       <View style={styles.loginParent}>
-        <TouchableOpacity style={styles.login}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Login")}
+          style={styles.login}
+        >
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
       </View>

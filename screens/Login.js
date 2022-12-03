@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import {
   Keyboard,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -9,52 +8,61 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import Navigator from "../components/Navigator";
 
-const Input = ({ placeholder, type }) => {
-  return <TextInput keyboardType={type} placeholder={placeholder} />;
-};
-
-function Signup({ navigation }) {
+function Login({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <ScrollView style={styles.container}>
-        <Navigator bg1="#00C805" bg2="#00C805" bg3="#00C805" />
-        <View>
-          <Text style={styles.headerText}>Create Your Login</Text>
-          <Text style={styles.text}>
-            You are just a step away. Fill out the form to get started.
-          </Text>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Login to your account</Text>
+        <Text style={styles.text}>
+          Log into your dashboard to keep track of your earnings.
+        </Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.inputText}>Your name</Text>
-          <Input placeholder="jeff brown" />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputText}>Username</Text>
-          <Input placeholder="jeff brown" />
-        </View>
-        <View style={styles.inputContainer}>
-          <Text style={styles.inputText}>Phone number</Text>
-          <Input placeholder="+123457768" type="numeric" />
+          <Text style={styles.inputText}>Your email</Text>
+          <TextInput
+            keyboardType="email-address"
+            placeholder="jeffbrown@gmail.com"
+          />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.inputText}>Password</Text>
-          <Input type="visible-password" />
+          <TextInput keyboardType="visible-password" />
         </View>
         <View style={styles.createParent}>
           <TouchableOpacity style={styles.create}>
-            <Text style={styles.createText}>Create account</Text>
+            <Text style={styles.createText}>Login</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
+        <View style={styles.account}>
+          <Text style={{ fontWeight: "700", color: "#696969" }}>
+            New on our platform?{" "}
+          </Text>
+          <TouchableOpacity>
+            <Text
+              onPress={() => navigation.navigate("Createaccount")}
+              style={{
+                color: "#00C805",
+                fontWeight: "700",
+              }}
+            >
+              Create an account
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </TouchableWithoutFeedback>
   );
 }
 
-export default Signup;
+export default Login;
 
 const styles = StyleSheet.create({
+  account: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30,
+  },
   container: {
     flex: 1,
     backgroundColor: "#FAFAFA",
@@ -81,12 +89,6 @@ const styles = StyleSheet.create({
     color: "#AEAEAE",
     fontSize: 12,
   },
-  text: {
-    color: "#8B8B8B",
-    fontSize: 18,
-    fontWeight: "400",
-    marginTop: 5,
-  },
   create: {
     backgroundColor: "#00C805",
     width: "90%",
@@ -110,5 +112,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     fontWeight: "600",
+  },
+  text: {
+    color: "#8B8B8B",
+    fontSize: 18,
+    fontWeight: "400",
+    marginTop: 5,
   },
 });

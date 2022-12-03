@@ -47,6 +47,7 @@ function CreateAccount({ navigation }) {
         <Text style={{ fontWeight: "700" }}>Already Have an Account? </Text>
         <TouchableOpacity>
           <Text
+            onPress={() => navigation.navigate("Login")}
             style={{
               color: "#00C805",
               fontWeight: "700",
